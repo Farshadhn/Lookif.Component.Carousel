@@ -6,7 +6,30 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <SignAssembly>False</SignAssembly>
     <Title>Lookif.Carousel</Title>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>Lookif</Company>
+    <Authors>Farshad</Authors>
+    <Description>Blazor Library to Create Carousel componenet</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Farshadhn/Lookif.Component.Carousel</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor;Razor;Carousel;slider;lookif</PackageTags>
+    <NeutralLanguage>fa-IR</NeutralLanguage>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -15,6 +38,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="License.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
