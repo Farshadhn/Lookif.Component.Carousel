@@ -1,0 +1,63 @@
+﻿.DetailWrapper {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 600;
+    position: absolute;
+    right: 5%;
+    top: 40%;
+    font-size: 1.8rem;
+    line-height: 2.25rem;
+}
+
+.DetailViewPage {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2.25rem;
+}
+
+.ImageThumbnail:hover {
+    cursor: pointer;
+}
+
+.ImageThumbnailWrapper {
+    z-index: 1000;
+    justify-content: space-around;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    height: 30%;
+    left: 0px;
+    bottom: 5%;
+    position: absolute;
+}
+
+.ImageThumbnail {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.SelectedImageThumbnail {
+    border: 5px solid white;
+}
+
+.HeaderCarouselWrapper {
+    position: relative;
+}
+
+
+.img-gradient:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: linear-gradient(to bottom, rgba(250,250,250,0) 10%,rgba(250,250,250,0) 50%,rgba(5, 22, 30, 0.9) 80%); /* W3C */
+}
+
+.img-gradient img {
+    display: block;
+}

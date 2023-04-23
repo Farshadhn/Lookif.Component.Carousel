@@ -1,0 +1,38 @@
+﻿.items {
+    position: relative;
+}
+
+.carouselImageWrapper {
+    border-radius: 15px;
+    box-shadow: 3px 4px 8px 0px black;
+}
+.carouselImage {
+    border-radius: 15px;
+}
+
+.card:nth-child(odd) {
+    background-color: blue;
+}
+
+.card:nth-child(even) {
+    background-color: rgb(0, 183, 255);
+}
+
+.slider-container {
+    width: 100%;
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    overflow-x: scroll;
+}
+
+.inner-slider {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

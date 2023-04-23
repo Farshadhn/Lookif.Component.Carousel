@@ -1,0 +1,17 @@
+﻿@inherits ItemCarouselBase;
+<section class="items">
+    <h4>@Data.Title</h4>
+
+    <div @ref="OuterElementReference" class="slider-container" style="height:@(Size.Height+20)px">
+        <div @ref="InnerElementReference" class="inner-slider">
+            @foreach (var item in Data.Items)
+                {
+                    <div class="carouselImageWrapper " style="background-size:cover;width:@(Size.Width)px;height:@(Size.Height)px">
+                        <img class="carouselImage" width="@(Size.Width)px" height="@(Size.Height)px" src="@item.Image" />
+                    </div>
+                } 
+        </div>
+    </div>
+
+     
+</section>

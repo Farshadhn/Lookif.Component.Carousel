@@ -1,0 +1,13 @@
+﻿@using Lookif.Component.Carousel.Header;
+@using Lookif.Component.Carousel.Items;
+@inherits LFCarouselBase 
+
+
+@if (CarouselType == CarouselType.Header)
+{
+    <HeaderCarousel Data=Data></HeaderCarousel>
+} else if (CarouselType == CarouselType.Item)
+{
+    <ItemCarousel Data=Data Size=Size></ItemCarousel>
+
+}
