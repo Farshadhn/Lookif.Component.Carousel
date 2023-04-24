@@ -19,7 +19,7 @@
         @foreach (var item in Data.Items)
         {
             <div class="ImageThumbnail" @onclick="()=>ChangeImage(item)" style="width:@(100/(Data.Items.Count+2))%">
-                <img class='h-100 ImageThumbnail @(Selected.ImageThumbnail == item.ImageThumbnail? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail" />
+                <img class='h-100 ImageThumbnail @(Selected.Id == item.Id ? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail" />
             </div>
 
         }
