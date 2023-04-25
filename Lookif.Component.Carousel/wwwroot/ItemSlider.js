@@ -36,7 +36,7 @@ export function Slick(sliderContainer, innerSlider) {
         if (!pressed) return;
         e.preventDefault(); 
         x = e.offsetX;
-        let scrollTo = startX - x; 
+        let scrollTo = startX - x;  
         sliderContainer.scroll(`${scrollTo}`,0);
         
     });
@@ -46,3 +46,22 @@ export function Slick(sliderContainer, innerSlider) {
 
 
 }
+
+
+export function MoveCarousel(sliderContainer, length) {
+
+ 
+    sliderContainer.scrollBy({
+        top: 0,
+        left: length,
+        behavior: "smooth",
+    });
+
+ 
+
+
+
+
+
+}
+

@@ -1,17 +1,27 @@
 ﻿@inherits ItemCarouselBase;
 <section class="items">
-    <h4>@Data.Title</h4>
-
+    <div class="d-flex" style="justify-content: space-between;">
+        <span>
+            <img class="ItemsImage" src="@Data.Image" />
+            <h4 class="ItemsTitle">@Data.Title</h4>
+        </span>
+        <span>
+            <span class="ItemsTitle ItemsTitleAll">همه</span>
+        </span>
+    </div>
+    <h4 @onclick="Prev" class="nextOrPrev noselect" style="left:0;top:@((Size.Height/2)+10)px">&#8250;</h4>
+    <h4 @onclick="Next" class="nextOrPrev noselect" style="right:0;top:@((Size.Height/2)+10)px">&#8249;</h4>
     <div @ref="OuterElementReference" class="slider-container" style="height:@(Size.Height+20)px">
         <div @ref="InnerElementReference" class="inner-slider">
+           
             @foreach (var item in Data.Items)
-                {
-                    <div class="carouselImageWrapper " style="background-size:cover;width:@(Size.Width)px;height:@(Size.Height)px">
-                        <img class="carouselImage" width="@(Size.Width)px" height="@(Size.Height)px" src="@item.Image" />
-                    </div>
-                } 
-        </div>
+            {
+                <div class="carouselImageWrapper " style="background-size:cover;width:@(Size.Width)px;height:@(Size.Height)px">
+                    <img class="carouselImage" width="@(Size.Width)px" height="@(Size.Height)px" src="@item.Image" />
+                </div>
+            }
+        </div> 
     </div>
 
-     
+
 </section>

@@ -5,9 +5,13 @@
     font-weight: 600;
     position: absolute;
     right: 5%;
-    top: 40%;
+    top: 30%;
     font-size: 1.8rem;
     line-height: 2.25rem;
+    z-index: 1;
+    color: var(--Carousel-Item-Title-Color);
+    font-family: var(--Carousel-Font-Bold);
+    font-weight: bolder;
 }
 
 .DetailViewPage {
@@ -55,7 +59,7 @@
     width: 100%;
     height: 100%;
     display: inline-block;
-    background: linear-gradient(to bottom, rgba(250,250,250,0) 10%,rgba(250,250,250,0) 50%,rgba(5, 22, 30, 0.9) 80%); /* W3C */
+    background: linear-gradient(to bottom, rgba(250,250,250,0) 10%,rgba(250,250,250,0) 50%,rgba(5, 22, 30,1) 80%); /* W3C */
 }
 
 .img-gradient img {

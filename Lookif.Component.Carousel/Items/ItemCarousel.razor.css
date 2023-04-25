@@ -1,15 +1,55 @@
 ﻿.items {
     position: relative;
 }
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.ItemsTitle {
+    color: var(--Carousel-Item-Title-Color);
+    font-family: var(--Carousel-Font-Bold);
+    font-weight: bolder;
+    display: inline-block;
+}
+.ItemsTitleAll {
+    font-size:larger;
+}
+.ItemsImage {
+    width: 30px;
+    height: 30px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 
 .carouselImageWrapper {
     border-radius: 15px;
     box-shadow: 3px 4px 8px 0px black;
 }
+
 .carouselImage {
     border-radius: 15px;
 }
+ 
 
+.nextOrPrev {
+    background-color: #f1f1f1;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px  ;
+    border-radius: 10%;
+    position:absolute;
+    z-index:1;
+}
+ 
 .card:nth-child(odd) {
     background-color: blue;
 }

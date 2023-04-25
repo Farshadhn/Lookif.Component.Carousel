@@ -12,17 +12,21 @@ public class ItemCarouselBase : CarouselBase
 
     public int SliderSize { get; set; }
 
-
+    private ItemSliderJSInterop _itemSliderJSInterop { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (_jSRuntime is not null)
-         await new ItemSliderJSInterop(_jSRuntime).Slick(OuterElementReference,InnerElementReference);
-
-
+        { 
+            _itemSliderJSInterop =  new ItemSliderJSInterop(_jSRuntime, OuterElementReference, InnerElementReference);
+             await _itemSliderJSInterop.Slick();
         
+        }
 
     }
+    public async void Next() { await _itemSliderJSInterop.MoveCarousel(Size.Width); }
+    public async void Prev() { await _itemSliderJSInterop.MoveCarousel(-1 * Size.Width); }
+ 
     protected override async Task OnParametersSetAsync()
     {
         SliderSize = (Data.Items.Count + 2) * Size.Width;
