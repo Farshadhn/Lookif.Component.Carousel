@@ -33,21 +33,25 @@
     border-radius: 15px;
     box-shadow: 3px 4px 8px 0px black;
 }
-
+.carouselImageWrapper:hover {
+cursor:
+}
 .carouselImage {
     border-radius: 15px;
 }
- 
+
 
 .nextOrPrev {
-    background-color: #f1f1f1;
-    color: black;
+    background-color: #05161e;
+    color: white;
     text-decoration: none;
     display: inline-block;
-    padding: 8px  ;
+    padding: 8px;
     border-radius: 10%;
-    position:absolute;
-    z-index:1;
+    position: absolute;
+    z-index: 1000;
+    font-size: 48px;
+    cursor:pointer;
 }
  
 .card:nth-child(odd) {
@@ -75,4 +79,51 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+
+
+
+.swiper {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+    z-index: 1;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+}
+
+.swiper-Image {
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: fill;
 }

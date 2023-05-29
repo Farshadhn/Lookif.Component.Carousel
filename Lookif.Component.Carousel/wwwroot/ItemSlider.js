@@ -10,34 +10,30 @@ export function Slick(sliderContainer, innerSlider) {
 
     sliderContainer.addEventListener("mousedown", (e) => {
         pressed = true; 
-        startX = e.offsetX - innerSlider.offsetLeft + sliderContainer.scrollLeft;
-     
+        var translateXValue = getTranslateXValue(sliderContainer.style.transform)
+        startX = e.screenX - translateXValue; 
         sliderContainer.style.cursor = "grabbing";
     });
-
-    sliderContainer.addEventListener("mouseenter", () => {
-        sliderContainer.style.cursor = "grab";
-    });
-
-    sliderContainer.addEventListener("mouseleave", () => {
-        sliderContainer.style.cursor = "default";
-    });
-
+     
     sliderContainer.addEventListener("mouseup", () => {
+       
         sliderContainer.style.cursor = "grab";
         pressed = false;
     });
-
-    window.addEventListener("mouseup", () => {
-        // pressed = false;
-    });
-
+   
+    
     sliderContainer.addEventListener("mousemove", (e) => {
         if (!pressed) return;
         e.preventDefault(); 
-        x = e.offsetX;
-        let scrollTo = startX - x;  
-        sliderContainer.scroll(`${scrollTo}`,0);
+
+        x = e.screenX;
+
+        let scrollTo = x - startX; //ToDo Check The opposite side
+        if (scrollTo < 0)
+            return; 
+        sliderContainer.style.transform = 'translateX(' + scrollTo + 'px)';
+
+        console.log(sliderContainer.style.transform);
         
     });
 
@@ -46,17 +42,35 @@ export function Slick(sliderContainer, innerSlider) {
 
 
 }
+function getTranslateXValue(translateString) {
 
+    var n = translateString.indexOf("(");
+    var n1 = translateString.indexOf(",");
+
+    var res = parseInt(translateString.slice(n + 1, n1 - 2));
+
+    return res;
+
+}
+function getTranslateYValue(translateString) {
+
+    var n = translateString.indexOf(",");
+    var n1 = translateString.indexOf(")");
+
+    var res = parseInt(translateString.slice(n + 1, n1 - 1));
+    return res;
+
+}
 
 export function MoveCarousel(sliderContainer, length) {
 
+    var translateXValue = getTranslateXValue(sliderContainer.style.transform); 
+    var scrollTo = translateXValue + length;
+    if (scrollTo < 0) //ToDo Check The opposite side
+        return;
+    sliderContainer.style.transition = "transform 0.7s linear 0s";
+    sliderContainer.style.transform = 'translateX(' + scrollTo + 'px)';
  
-    sliderContainer.scrollBy({
-        top: 0,
-        left: length,
-        behavior: "smooth",
-    });
-
  
 
 
