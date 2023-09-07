@@ -19,6 +19,8 @@
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 2.25rem;
+    margin-top: 20px;
+    background-color: var(--Button-Main-Color);
 }
 
 .ImageThumbnail:hover {
