@@ -49,8 +49,8 @@
     animation-iteration-count: infinite;
     font-size: larger;
     cursor: pointer;
-    border-radius: 25px;
-    background-color: #032d42;
+    border-radius: 5px;
+    /*background-color: #032d42;*/
     padding-right: 25px;
     padding-left: 25px;
     margin-left: 20px;
