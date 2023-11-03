@@ -2,42 +2,49 @@
 // functions, and may import other JavaScript modules if required.
 
 export function Slick(sliderContainer, innerSlider) {
- 
+
 
     let pressed = false;
     let startX;
     let x;
+    let moved = false;
 
     sliderContainer.addEventListener("mousedown", (e) => {
-        pressed = true; 
+        pressed = true;
         var translateXValue = getTranslateXValue(sliderContainer.style.transform)
-        startX = e.screenX - translateXValue; 
+        startX = e.screenX - translateXValue;
         sliderContainer.style.cursor = "grabbing";
     });
-     
-    sliderContainer.addEventListener("mouseup", () => {
-       
+
+    sliderContainer.addEventListener("mouseup", (e) => {
         sliderContainer.style.cursor = "grab";
         pressed = false;
     });
-   
-    
-    sliderContainer.addEventListener("mousemove", (e) => {
-        if (!pressed) return;
-        e.preventDefault(); 
+    sliderContainer.addEventListener("click", (e) => {
+       
+        if (moved) {
+            moved = false;
+            e.preventDefault();
+        }
+        
+    });
 
+    sliderContainer.addEventListener("mousemove", (e) => {
+
+        if (!pressed) return;
+        e.preventDefault();
+        moved = true;
         x = e.screenX;
 
         let scrollTo = x - startX; //ToDo Check The opposite side
         if (scrollTo < 0)
-            return; 
+            return;
         sliderContainer.style.transform = 'translateX(' + scrollTo + 'px)';
 
-        console.log(sliderContainer.style.transform);
-        
+
     });
 
-   
+
 
 
 
@@ -64,14 +71,14 @@ function getTranslateYValue(translateString) {
 
 export function MoveCarousel(sliderContainer, length) {
 
-    var translateXValue = getTranslateXValue(sliderContainer.style.transform); 
+    var translateXValue = getTranslateXValue(sliderContainer.style.transform);
     var scrollTo = translateXValue + length;
     if (scrollTo < 0) //ToDo Check The opposite side
         return;
     sliderContainer.style.transition = "transform 0.7s linear 0s";
     sliderContainer.style.transform = 'translateX(' + scrollTo + 'px)';
- 
- 
+
+
 
 
 
