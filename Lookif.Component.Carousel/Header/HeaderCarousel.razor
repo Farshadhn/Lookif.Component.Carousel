@@ -34,4 +34,17 @@
             }
         </div>
     }
+    @if (Data.Items is not null)
+    {
+        <div class="ImageThumbnailWrapperMobileView">
+            @foreach (var item in Data.Items)
+            {
+                <div class='ImageThumbnailMobileView mx-2 @(Selected.Id == item.Id ? "SelectedImageThumbnailMobileView":"")' 
+                @onclick="()=>ChangeImage(item)" >
+                 
+                </div>
+
+            }
+        </div>
+    }
 </div> 
