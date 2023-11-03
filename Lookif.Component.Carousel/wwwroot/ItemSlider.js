@@ -9,17 +9,54 @@ export function Slick(sliderContainer, innerSlider) {
     let x;
     let moved = false;
 
+
+    sliderContainer.addEventListener("touchstart", (e) => {
+        pressed = true;
+        console.log("ontouchstart");
+        var translateXValue = getTranslateXValue(sliderContainer.style.transform)
+        startX = e.touches[0].clientX - translateXValue;
+        sliderContainer.style.cursor = "grabbing";
+    });
+
+    sliderContainer.addEventListener("touchend", (e) => {
+
+        console.log("ontouchend");
+        sliderContainer.style.cursor = "grab";
+        pressed = false;
+    });
+
+    sliderContainer.addEventListener("touchmove", (e) => {
+        console.log("touchmove");
+        if (!pressed) return;
+        e.preventDefault();
+        console.log("xxx");
+        
+        x = e.touches[0].clientX;
+        console.log(e);
+        console.log(x);
+        let scrollTo = x - startX; //ToDo Check The opposite side
+        if (scrollTo < 0)
+            return;
+        sliderContainer.style.transform = 'translateX(' + scrollTo + 'px)';
+
+
+    });
+
+
     sliderContainer.addEventListener("mousedown", (e) => {
         pressed = true;
         var translateXValue = getTranslateXValue(sliderContainer.style.transform)
         startX = e.screenX - translateXValue;
         sliderContainer.style.cursor = "grabbing";
     });
+   
 
     sliderContainer.addEventListener("mouseup", (e) => {
         sliderContainer.style.cursor = "grab";
         pressed = false;
     });
+
+
     sliderContainer.addEventListener("click", (e) => {
        
         if (moved) {
