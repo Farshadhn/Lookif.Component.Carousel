@@ -9,14 +9,13 @@
             var displayStatus = (item == Selected) ? "d-flex" : "d-none";
 
             <div class='DetailWrapper @displayStatus'>
-                <span class="DetailTitle">@(item.Title)</span>
+                <h3 class="DetailTitle">@(item.Title)</h3>
                 <span class="btn  DetailViewPage" @onclick="()=>NavigateTo(item.Link)">
                     تماشا کنید
                 </span>
             </div>
             <div class='img-gradient w-100 h-100 @displayStatus'>
-                <img src="@item.Image" class="w-100 h-100 "
-             onerror="this.onerror=null;this.src='@NotFoundImage';" />
+                <img src="@item.Image" class="w-100 h-100 " onerror="this.onerror=null;this.src='@NotFoundImage';" />
             </div>
 
         }
@@ -27,8 +26,7 @@
             @foreach (var item in Data.Items)
             {
                 <div class="ImageThumbnail" @onclick="()=>ChangeImage(item)" style="width:@(100/(Data.Items.Count+2))%">
-                    <img class='h-100 ImageThumbnail @(Selected.Id == item.Id ? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail"
-                 onerror="this.onerror=null;this.src='@NotFoundImage';" />
+                    <img class='h-100 ImageThumbnail @(Selected.Id == item.Id ? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail" onerror="this.onerror=null;this.src='@NotFoundImage';" />
                 </div>
 
             }

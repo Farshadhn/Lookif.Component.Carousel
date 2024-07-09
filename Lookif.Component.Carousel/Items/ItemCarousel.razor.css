@@ -42,6 +42,7 @@
     font-family: var(--Carousel-Font-Bold);
     font-weight: bolder;
     display: inline-block;
+    font-size: x-large;
 }
 .ItemsTitleAll {
     animation-name: tilt-shaking;

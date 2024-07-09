@@ -30,7 +30,7 @@ export function Slick(sliderContainer, innerSlider) {
         if (!pressed) return;
         e.preventDefault();
         console.log("xxx");
-        
+
         x = e.touches[0].clientX;
         console.log(e);
         console.log(x);
@@ -44,26 +44,35 @@ export function Slick(sliderContainer, innerSlider) {
 
 
     sliderContainer.addEventListener("mousedown", (e) => {
+
         pressed = true;
         var translateXValue = getTranslateXValue(sliderContainer.style.transform)
         startX = e.screenX - translateXValue;
         sliderContainer.style.cursor = "grabbing";
     });
-   
+
 
     sliderContainer.addEventListener("mouseup", (e) => {
         sliderContainer.style.cursor = "grab";
         pressed = false;
     });
+    sliderContainer.addEventListener("mouseleave", (e) => {
+
+        if (pressed) {
+            sliderContainer.style.cursor = "grab";
+            pressed = false;
+        }
+
+    });
 
 
     sliderContainer.addEventListener("click", (e) => {
-       
+
         if (moved) {
             moved = false;
             e.preventDefault();
         }
-        
+
     });
 
     sliderContainer.addEventListener("mousemove", (e) => {

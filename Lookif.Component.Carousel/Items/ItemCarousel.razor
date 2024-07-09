@@ -1,5 +1,5 @@
 ﻿@inherits ItemCarouselBase;
-<section class="items">
+<section class="items noselect">
 
     <div class="d-flex" style="justify-content: space-between;">
         <span>
@@ -7,14 +7,14 @@
             {
                 <img class="ItemsImage" src="@Data.Image" />
             }
-            <h4 class="ItemsTitle">@Data.Title</h4>
+            <h2 class="ItemsTitle">@Data.Title</h2>
         </span>
         <span>
             <span class="ItemsTitle ItemsTitleAll" @onclick='@(()=>NavigateTos("Section/"+(Data.Name)))'>نمایش بیشتر</span>
         </span>
     </div>
-    <h4 @onclick="Prev" class="nextOrPrev noselect" style="left:-40px;top:@((Size.Height/2)-15)px;">&#8250;</h4>
-    <h4 @onclick="Next" class="nextOrPrev noselect" style="right:-40px;top:@((Size.Height/2)-15)px; ">&#8249;</h4>
+    <span @onclick="Prev" class="nextOrPrev noselect" style="left:-40px;top:@((Size.Height/2)-15)px;">&#8250;</span>
+    <span @onclick="Next" class="nextOrPrev noselect" style="right:-40px;top:@((Size.Height/2)-15)px; ">&#8249;</span>
 
 
     <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl" dir="rtl">
@@ -32,7 +32,7 @@
                             </span>
 
                         </a>
-                        <a class="text-white text-right font-normal mt-1.5 md:text-sm xs:text-xs pt-1 block" style=" text-decoration: none !important; font-family: var(--Carousel-Font-Bold);display: block;text-align: center;" href="@item.Link">@item.Title</a>
+                        <h3 class="text-white text-right font-normal mt-1.5 md:text-sm xs:text-xs pt-1 block" style=" text-decoration: none !important; font-family: var(--Carousel-Font-Bold);display: block;text-align: center;font-size: medium;" href="@item.Link">@item.Title</h3>
                     </section>
                 </div>
 
