@@ -9,7 +9,7 @@
             var displayStatus = (item == Selected) ? "d-flex" : "d-none";
 
             <div class='DetailWrapper @displayStatus'>
-                <h3 class="DetailTitle">@(item.Title)</h3>
+                <span class="DetailTitle">@(item.Title)</span>
                 <span class="btn  DetailViewPage" @onclick="()=>NavigateTo(item.Link)">
                     تماشا کنید
                 </span>

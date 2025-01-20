@@ -7,7 +7,7 @@
             {
                 <img class="ItemsImage" src="@Data.Image" />
             }
-            <h2 class="ItemsTitle">@Data.Title</h2>
+            <span class="ItemsTitle">@Data.Title</span>
         </span>
         <span>
             <span class="ItemsTitle ItemsTitleAll" @onclick='@(()=>NavigateTos("Section/"+(Data.Name)))'>نمایش بیشتر</span>
@@ -25,14 +25,14 @@
                 <div class="swiper-slide" style="width: 183.735px; margin-left: 30px;">
                     <section class="block relative cursor-pointer mx-1 undefined">
                         <a class="block relative w-full cursor-pointer "
-                       href="@item.Link">
+                           href="@item.Link">
                             <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
                                 <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 150% 0px 0px;"></span>
                                 <img class="swiper-Image" onerror="this.onerror=null;this.src='@NotFoundImage';" width="@(Size.Width)px" height="@(Size.Height)px" src="@item.Image" decoding="async" data-nimg="responsive">
                             </span>
 
                         </a>
-                        <h3 class="text-white text-right font-normal mt-1.5 md:text-sm xs:text-xs pt-1 block" style=" text-decoration: none !important; font-family: var(--Carousel-Font-Bold);display: block;text-align: center;font-size: medium;" href="@item.Link">@item.Title</h3>
+                        <span class="text-white text-right font-normal mt-1.5 md:text-sm xs:text-xs pt-1 block" style=" text-decoration: none !important; font-family: var(--Carousel-Font-Bold);display: block;text-align: center;font-size: medium;" href="@item.Link">@item.Title</span>
                     </section>
                 </div>
 
