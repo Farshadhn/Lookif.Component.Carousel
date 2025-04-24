@@ -14,7 +14,6 @@ public class CarouselBase : ComponentBase
     [Parameter] public CarouselType CarouselType { get; set; }
     [Parameter] public CarouselContextHolder Data { get; set; }
     [Parameter] public Size Size { get; set; } = new Size(200, 290);
-    [Parameter] public string NotFoundImage { get; set; } 
 
    
     protected override Task OnParametersSetAsync()
@@ -27,10 +26,7 @@ public class CarouselBase : ComponentBase
 
     public void ChangeImage(CarouselItemContextHolder carouselItemContextHolder)
     {
-        StateHasChanged();
-
         Selected = carouselItemContextHolder;
-        StateHasChanged();
     }
     public void NavigateTo(string path)
     {
