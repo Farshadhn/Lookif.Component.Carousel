@@ -7,8 +7,32 @@
     .ImageThumbnailWrapper {
         visibility: hidden;
     }
-}
 
+    .img-gradient img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover; 
+        /* Adjust max-height as needed for your design */
+    }
+}
+@media (max-width: 768px) {
+    .HeaderCarouselWrapper {
+        flex-direction: column-reverse !important;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .DetailWrapper {
+        position: static !important;
+        right: unset !important;
+        top: unset !important;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 70px; /* space above thumbnails */
+        z-index: 2;
+    }
+
+} 
 @media (min-width: 769px) {
     .ImageThumbnailWrapperMobileView {
         visibility: hidden;

@@ -1,7 +1,7 @@
 ﻿@inherits ItemCarouselBase;
 <section class="items noselect">
 
-    <div class="d-flex" style="justify-content: space-between;">
+    <div class="d-flex item-header" style="justify-content: space-between;">
         <span>
             @if (!string.IsNullOrEmpty(@Data.Image))
             {
@@ -9,7 +9,7 @@
             }
             <span class="ItemsTitle">@Data.Title</span>
         </span>
-        <span>
+        <span >
             <span class="ItemsTitle ItemsTitleAll" @onclick='@(()=>NavigateTos("Section/"+(Data.Name)))'>نمایش بیشتر</span>
         </span>
     </div>
