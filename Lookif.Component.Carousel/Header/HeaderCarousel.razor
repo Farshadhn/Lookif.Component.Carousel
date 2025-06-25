@@ -2,26 +2,48 @@
 
 
 <div class="w-100 h-100 d-flex flex-row HeaderCarouselWrapper ">
-
-    <div class="DetailWrapper">
-        <span class="DetailTitle">@(Selected.Title)</span>
-        <span class="btn btn-success DetailViewPage" @onclick="()=>NavigateTo(Selected.Link)">
-            تماشا کنید
-        </span>
-    </div>
-    <div class="img-gradient w-100 h-100 ">
-        <img src="@Selected.Image" class="w-100 h-100 " />
-    </div>
-
-
-
-    <div class="ImageThumbnailWrapper">
+    @if (Data.Items is not null)
+    {
         @foreach (var item in Data.Items)
         {
-            <div class="ImageThumbnail" @onclick="()=>ChangeImage(item)" style="width:@(100/(Data.Items.Count+2))%">
-                <img class='h-100 ImageThumbnail @(Selected.ImageThumbnail == item.ImageThumbnail? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail" />
+            var displayStatus = (item == Selected) ? "d-flex" : "d-none";
+
+            <div class='DetailWrapper @displayStatus'>
+                <span class="DetailTitle">@(item.Title)</span>
+                <span class="btn  DetailViewPage" @onclick="()=>NavigateTo(item.Link)">
+                    تماشا کنید
+                </span>
+            </div>
+            <div class='img-gradient w-100 h-100 @displayStatus'>
+                <img src="@item.Image" class="w-100" onerror="this.onerror=null;this.src='@NotFoundImage';" />
             </div>
 
         }
-    </div>
+    }
+    @if (Data.Items is not null)
+    {
+        <div class="ImageThumbnailWrapper">
+            @foreach (var item in Data.Items)
+            {
+                <div class="ImageThumbnail" @onclick="()=>ChangeImage(item)" style="width:@(100/(Data.Items.Count+2))%">
+                    <img class='h-100 ImageThumbnail @(Selected.Id == item.Id ? "SelectedImageThumbnail":"")' src="@item.ImageThumbnail" onerror="this.onerror=null;this.src='@NotFoundImage';" />
+                </div>
+
+            }
+        </div>
+    }
+    @if (Data.Items is not null)
+    {
+        <div class="ImageThumbnailWrapperMobileView">
+            @foreach (var item in Data.Items)
+            {
+                <div class='ImageThumbnailMobileView mx-2 @(Selected.Id == item.Id ? "SelectedImageThumbnailMobileView":"")' 
+                @onclick="()=>ChangeImage(item)" >
+                 
+                </div>
+
+            }
+        </div>
+    }
 </div> 
+

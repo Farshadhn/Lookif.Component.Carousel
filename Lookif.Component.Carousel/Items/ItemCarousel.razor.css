@@ -2,12 +2,99 @@
     position: relative;
 }
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+@keyframes tilt-shaking {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    35% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    55% {
+        transform: rotate(0eg);
+    }
+
+    60% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.ItemsTitle {
+    color: var(--Carousel-Item-Title-Color);
+    font-family: var(--Carousel-Font-Bold);
+    font-weight: bolder;
+    display: inline-block;
+    font-size: x-large;
+}
+
+.ItemsTitleAll {
+    animation-name: tilt-shaking;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    font-size: larger;
+    cursor: pointer;
+    border-radius: 5px;
+    /*background-color: #032d42;*/
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-left: 20px;
+    border: 1px white solid;
+}
+
+.ItemsImage {
+    width: 30px;
+    height: 30px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 .carouselImageWrapper {
     border-radius: 15px;
     box-shadow: 3px 4px 8px 0px black;
 }
+
 .carouselImage {
     border-radius: 15px;
+}
+
+
+.nextOrPrev {
+    background-color: #05161e;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 10%;
+    position: absolute;
+    z-index: 1000;
+    font-size: 48px;
+    cursor: pointer;
 }
 
 .card:nth-child(odd) {
@@ -35,4 +122,67 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+
+
+
+.swiper {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+    z-index: 1;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+}
+
+.swiper-Image {
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: fill;
+}
+.item-header {
+    padding: 20px 0;
+}
+
+
+@media (max-width: 769px) {
+    .ItemsTitle {
+        font-size: large;
+    }
+
+    
+    .ItemsTitleAll {
+        margin: 0;
+    }
 }
