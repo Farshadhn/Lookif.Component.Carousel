@@ -12,7 +12,6 @@ export function Slick(sliderContainer, innerSlider) {
 
     sliderContainer.addEventListener("touchstart", (e) => {
         pressed = true;
-        console.log("ontouchstart");
         var translateXValue = getTranslateXValue(sliderContainer.style.transform)
         startX = e.touches[0].clientX - translateXValue;
         sliderContainer.style.cursor = "grabbing";
@@ -20,20 +19,16 @@ export function Slick(sliderContainer, innerSlider) {
 
     sliderContainer.addEventListener("touchend", (e) => {
 
-        console.log("ontouchend");
         sliderContainer.style.cursor = "grab";
         pressed = false;
     });
 
     sliderContainer.addEventListener("touchmove", (e) => {
-        console.log("touchmove");
+
         if (!pressed) return;
         e.preventDefault();
-        console.log("xxx");
 
         x = e.touches[0].clientX;
-        console.log(e);
-        console.log(x);
         let scrollTo = x - startX; //ToDo Check The opposite side
         if (scrollTo < 0)
             return;
